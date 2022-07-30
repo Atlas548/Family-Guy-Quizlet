@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style.css">
+    <script src="https://kit.fontawesome.com/44ca1f1d91.js" crossorigin="anonymous"></script>
     <title>Family Guy Quizlet</title>
 </head>
 <body>
@@ -26,6 +27,49 @@
                 <button class="exit_quiz">Exit Quiz</button>
                 <button class="continue_quiz">Continue</button>
             </div>
+        </div>
+
+        <!-- Box where the main portion of the quiz will take place -->
+        <div class="main_box">
+            <header>
+                <div class="title">Family Guy Quiz</div>
+                <div class="timer">
+                    <div class="time_left">Time Left</div>
+                    <div class="time">120</div>
+                </div>
+                <div class="timeline"></div>
+            </header>
+            <section>
+             <div class="question_text">
+               <span>What year was Family Guy first aired?</span>
+             </div>
+             <div class="option_list">
+                <div class="options">
+                    <span>1997</span>
+                    <div class="icon incorrect"><i class="fas fa-times"></i></div>
+                </div>
+                <div class="options">
+                    <span>1998</span>
+                    <div class="icon incorrect"><i class="fas fa-times"></i></div>
+                </div>
+                <div class="options">
+                    <span>1999</span>
+                    <div class="icon correct"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="options">
+                    <span>2000</span>
+                    <div class="icon incorrect"><i class="fas fa-times"></i></div>
+                </div>
+            </div>
+            </section>
+
+        <!-- Footer of the Main Box  -->
+            <footer>
+                <div class="total_questions">
+                <span><p>2</p>of<p>5</p>Questions</span>
+                </div>
+                <button class="next_button">Next Question</button>
+            </footer>
         </div>
 
 </body>
