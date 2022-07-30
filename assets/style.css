@@ -1,0 +1,75 @@
+body {
+    background: blue;
+}
+
+.button_start,
+.rules_box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Start button styling */
+.button_start button {
+    font-size: 27px;
+    font-weight: 520;
+    background: white;
+    cursor: pointer;
+    color: blue;
+    border-radius: 6px;
+    padding: 15px 35px;
+    border: none;
+    outline: none;
+}
+
+.rules_box {
+    width: 550px;
+    background: white;
+    border-radius: 6px;
+}
+
+.rules_box .rules_title {
+    border-bottom: 1px solid lightslategray;
+    display: flex;
+    padding: px 1px;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.rules_box .rule_list {
+    padding: 19px 30px;
+}
+
+.rules_box .rule_list .list {
+    margin: 5px;
+    font-size: 15px;
+}
+
+.rules_box .rule_list .list span {
+    font-weight: 700;
+    color: red;
+}
+
+.rules_box .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: 1px solid lightslategray;
+    padding: 3px 30px;
+    height: 60px;
+}
+
+.rules_box .buttons button {
+    background: blue;
+    color: white;
+    border: 1px solid blue;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+}
