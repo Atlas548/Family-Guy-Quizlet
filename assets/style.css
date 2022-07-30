@@ -16,6 +16,13 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.rules_box.activeInfo {
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
 .highscore button {
     cursor: pointer;
     color: blue;
@@ -45,10 +52,12 @@ body {
 }
 
 .rules_box {
-    display: none;
     width: 550px;
     background: white;
     border-radius: 6px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.9);
 }
 
 .rules_box .rules_title {
@@ -97,8 +106,10 @@ body {
 }
 
 .main_box {
-    display: none;
     width: 500px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%. -50%) scale(0.9);
     background: white;
     border-radius: 5px;
 }
@@ -215,6 +226,7 @@ section .option_list .options:hover {
 }
 
 .results {
+    display: none;
     background: lightblue;
     border-radius: 7px;
     padding: 6px;
