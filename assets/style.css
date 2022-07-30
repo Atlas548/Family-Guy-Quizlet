@@ -8,14 +8,26 @@ body {
 
 .button_start,
 .rules_box,
-.main_box {
+.main_box,
+.results {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-/* Start button styling */
+.highscore button {
+    cursor: pointer;
+    color: blue;
+    border-radius: 6px;
+    border: none;
+    font-size: 30px;
+}
+
+.highscore button:hover {
+    background-color: lightblue;
+}
+
 .button_start button {
     font-size: 27px;
     font-weight: 720;
@@ -26,6 +38,10 @@ body {
     padding: 15px 35px;
     border: none;
     outline: none;
+}
+
+.button_start button:hover {
+    background-color: lightblue;
 }
 
 .rules_box {
@@ -81,6 +97,7 @@ body {
 }
 
 .main_box {
+    display: none;
     width: 500px;
     background: white;
     border-radius: 5px;
@@ -175,4 +192,56 @@ section .option_list .options:hover {
     background-color: white;
     color: red;
     border-color: red;
+}
+
+.main_box footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    height: 70px;
+    width: 90%;
+}
+
+.main_box footer span {
+    align-items: center;
+    user-select: none;
+    display: flex;
+}
+
+.main_box footer span p {
+    font-weight: 700;
+    padding: 0 5px;
+}
+
+.results {
+    background: lightblue;
+    border-radius: 7px;
+    padding: 6px;
+}
+
+.results .completed {
+    border-bottom: 1px solid lightgray;
+    font-size: 25px;
+}
+
+.results .final_score span{
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    padding: 0 20px;
+}
+
+.results .final_score span p {
+    font-weight: 700;
+    padding: 0 5px;
+}
+
+.results .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 6px;
 }

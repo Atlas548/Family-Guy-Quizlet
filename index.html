@@ -10,6 +10,7 @@
 </head>
 <body>
         <!-- Button to start the quiz  -->
+        <div class="highscore"><button>Leaderboard</button></div>
         <div class="button_start"><button>Start Quiz</button></div>
 
         <!-- Rules information box  -->
@@ -72,5 +73,21 @@
             </footer>
         </div>
 
+           <!-- Results Box for when the quiz has been completed -->
+        <div class="results">
+            <div class="completed">Congrats!! You've completed the Quiz!</div>
+            <div class="final_score">
+                <span>Sorry, you only got<p>2</p>out of<p>5</p>correct</span>
+            </div>
+            <div class="buttons">
+                <button class="restart">Restart Quiz</button>
+                <button class="quit">Exit Quiz</button>
+            </div>
+        </div>
+        <!-- Javascript file that contains the questions only -->
+        <script src="./assets/questions.js"></script>
+        <!-- Contains the rest of the Javascript code  -->
+        <script src="./assets/script.js"></script>
+    
 </body>
 </html>
