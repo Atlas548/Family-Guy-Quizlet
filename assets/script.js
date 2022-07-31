@@ -13,7 +13,7 @@ const timeline = document.querySelector("header .timeline");
 
 let timeValue = 120;
 let questionCounter = 0;
-let questinNumber = 1;
+let questionNumber = 1;
 let userScore = 0;
 let counterLine;
 let counter;
@@ -34,7 +34,6 @@ continue_quiz.onclick = ()=>{
     rules_box.classList.remove("activeInfo"); 
     main_box.classList.add("activeQuiz");
     startTimer(120);
-    startTimerLine(0);
     questionCounter(1);
     showQuestions(0);
 }
@@ -54,14 +53,14 @@ restart_quiz.onclick = ()=>{
     main_box.classList.add("activeQuiz")
     userScore = 0;
     widthValue = 0;
-    questinNumber = 1;
+    questionNumber = 1;
     questionCounter = 0;
     timeValue = 120;
     startTimerLine(widthValue);
     startTimer(timeValue);
     clearInterval(counterLine);
     clearInterval(counter);
-    questionCounter(questinNumber);
+    questionCounter(questionNumber);
     showQuestions(questionCounter);
     next_question.classList.remove("show");
     timeText.textContent = "Time Left";
@@ -74,9 +73,9 @@ const total_questions = document.querySelector("footer .total_questions")
 next_question.onclick = ()=>{
     if(questionCounter < questionCounter.length - 1){
         questionCounter++;
-        questinNumber++;
+        questionNumber++;
         showQuestions(questionCounter);
-        questionCounter(questinNumber);
+        questionCounter(questionNumber);
         clearInterval(counterLine);
         clearInterval(counter);
         timeText.textContent = "Time Left";
@@ -91,7 +90,7 @@ next_question.onclick = ()=>{
 function showQuestions(index){
     const question_text = document.querySelector(".question_text");
     // Creating new spans & div tags for questions 
-    let question_tag = '<span>'+ questions[index].number ". " = questions[index].question + '</span>';
+    let question_tag = '<span>'+ questions[index].numb + ". " + questions[index].question + '</span>';
     let option_tag = '<div class="option"><span>' + questions[index].options[0] + '</span></div>' +
     + '<div class="option"><span>'+ questions[index].options[1] +'</span></div>'
     + '<div class="option"><span>'+ questions[index].options[2] +'</span></div>'
@@ -105,6 +104,75 @@ function showQuestions(index){
         option[i].setAttribute("onclick", "optionSelected(this)");
     }
 }
+
 // Div tags for incorrect and correct icons 
 let correctIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
 let incorrectIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
+
+function optionSelected(answer){
+    clearInterval(counterLine);
+    clearInterval(counter);
+    let userAnswer = answer.textContent;
+    let correctAnswer = questions[questionCounter].answer;
+    const allOptions = options.children.length;
+
+    if(userAnswer == correctAnswer) {
+        userScore += 1;
+        answer.classList.add("correct");
+        answer.insertAdjacentHTML("beforeend", correctIconTag)
+        console.log("Correct Answer");
+        console.log("Your Correct Answers =" + userScore);
+    }else {
+        answer.classList.add("incorrect");
+        answer.insertAdjacentHTML("beforeend", incorrectIconTag)
+        console.log("Incorrect Answer");
+
+        for(i=0; i < allOptions; i++){
+            if(options.children[i].textContent == correcAns){ 
+                options.children[i].setAttribute("class", "option correct"); 
+                options.children[i].insertAdjacentHTML("beforeend", tickIconTag); 
+                console.log("Auto selected correct answer.");
+                }
+            }
+        }for(i=0; i < allOptions; i++){
+            options.children[i].classList.add("disabled");
+        }
+        next_question.classList.add("show");
+}
+
+function showResult(){
+    rules_box.classList.remove("activeInfo");
+    main_box.classList.remove("activeQuiz");
+    results.classList.add("activeResult");
+    const scoreText = results.querySelector(".final_score");
+    if (userScore > 3){ 
+        let scoreTag = '<span>and congrats! , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+        scoreText.innerHTML = scoreTag;  //adding new span tag inside score_Text
+    }else if(userScore > 1){ 
+        let scoreTag = '<span>and nice , You got <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+        scoreText.innerHTML = scoreTag;
+    }else{
+        let scoreTag = '<span>and sorry , You got only <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
+        scoreText.innerHTML = scoreTag;
+    }
+}
+
+function startTimer() {
+    timer = setInterval(function(){
+        timeValue -- 
+        timeLeft.textContent = timeValue + "seconds remaining";
+        if (timeLeft === 0 || questionCounter === questions.length) {
+            endQuiz();
+        }
+    }, 1000);
+}
+
+function endQuiz() {
+    results.textContent = timeLeft;
+    clearInterval(counter);
+}
+
+// function questionCounter(index){
+//     let totalQueCounTag = '<span><p>'+ index +'</p> of <p>'+ questions.length +'</p> Questions</span>';
+//     bottom_ques_counter.innerHTML = totalQueCounTag;
+// }
