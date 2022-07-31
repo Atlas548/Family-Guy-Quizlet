@@ -16,7 +16,9 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.rules_box.activeInfo {
+.rules_box.activeInfo,
+.main_box.activeQuiz,
+.results.activeResults{
     z-index: 5;
     opacity: 1;
     pointer-events: auto;
@@ -97,21 +99,24 @@ body {
 .rules_box .buttons button {
     background: blue;
     color: white;
+    outline: none;
     border: 1px solid blue;
     border-radius: 5px;
     cursor: pointer;
     margin: 0 5px;
     height: 40px;
     width: 100px;
+    transition: all 0.3s ease;
 }
 
 .main_box {
     width: 500px;
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%. -50%) scale(0.9);
+    transform: translate(-50%, -50%) scale(0.9);
     background: white;
     border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
 .main_box header {
@@ -226,10 +231,13 @@ section .option_list .options:hover {
 }
 
 .results {
-    display: none;
     background: lightblue;
     border-radius: 7px;
     padding: 6px;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
 }
 
 .results .completed {
