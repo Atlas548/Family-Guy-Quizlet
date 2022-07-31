@@ -12,7 +12,7 @@ const timeline = document.querySelector("header .timeline");
 
 
 let timeValue = 120;
-let questionCounter = 0;
+let questionCount = 0;
 let questionNumber = 1;
 let userScore = 0;
 let counterLine;
@@ -54,7 +54,7 @@ restart_quiz.onclick = ()=>{
     userScore = 0;
     widthValue = 0;
     questionNumber = 1;
-    questionCounter = 0;
+    questionCount = 0;
     timeValue = 120;
     startTimerLine(widthValue);
     startTimer(timeValue);
@@ -63,7 +63,7 @@ restart_quiz.onclick = ()=>{
     questionCounter(questionNumber);
     showQuestions(questionCounter);
     next_question.classList.remove("show");
-    timeText.textContent = "Time Left";
+    timeLeft.textContent = "Time Left";
 }
 
 const next_question = document.querySelector("footer .next_button");
@@ -71,14 +71,14 @@ const total_questions = document.querySelector("footer .total_questions")
 
 // if next question button is clicked
 next_question.onclick = ()=>{
-    if(questionCounter < questionCounter.length - 1){
-        questionCounter++;
+    if(questionCount < questions.length - 1){
+        questionCount++;
         questionNumber++;
-        showQuestions(questionCounter);
+        showQuestions(questionCount);
         questionCounter(questionNumber);
         clearInterval(counterLine);
         clearInterval(counter);
-        timeText.textContent = "Time Left";
+        timeLeft.textContent = "Time Left";
         next_question.classList.remove("show");
     }else{
         clearInterval(counterLine);
@@ -90,13 +90,13 @@ next_question.onclick = ()=>{
 function showQuestions(index){
     const question_text = document.querySelector(".question_text");
     // Creating new spans & div tags for questions 
-    let question_tag = '<span>'+ questions[index].numb + ". " + questions[index].question + '</span>';
-    let option_tag = '<div class="option"><span>' + questions[index].options[0] + '</span></div>' +
+    let question = '<span>'+ questions[index].numb + ". " + questions[index].question + '</span>';
+    let optionTag = '<div class="option"><span>' + questions[index].options[0] + '</span></div>' +
     + '<div class="option"><span>'+ questions[index].options[1] +'</span></div>'
     + '<div class="option"><span>'+ questions[index].options[2] +'</span></div>'
     + '<div class="option"><span>'+ questions[index].options[3] +'</span></div>';
-    question_text.innerHTML = question_tag;
-    options.innerHTML = option_tag;
+    question_text.innerHTML = question;
+    options.innerHTML = optionTag;
 
     const option = options.querySelectorAll(".options");
 
@@ -172,7 +172,7 @@ function endQuiz() {
     clearInterval(counter);
 }
 
-// function questionCounter(index){
-//     let totalQueCounTag = '<span><p>'+ index +'</p> of <p>'+ questions.length +'</p> Questions</span>';
-//     bottom_ques_counter.innerHTML = totalQueCounTag;
-// }
+function questionCounter(index){
+    let totalQueCounTag = '<span><p>'+ index +'</p> of <p>'+ questions.length +'</p> Questions</span>';
+    total_questions.innerHTML = totalQueCounTag;
+}
