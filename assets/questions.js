@@ -13,7 +13,7 @@ let questions = [
     },
     {
         numb: 2,
-        question: "who is the voice actor for Peter Griffin?",
+        question: "Who is the voice actor for Peter Griffin?",
         answer: "Seth MacFarlane",
         options: [
             "Jim Carry",
@@ -30,7 +30,7 @@ let questions = [
             "Season 5",
             "Season 6",
             "Season 7",
-            "Season 8",
+            "Season 8"
         ]
     },
     {
